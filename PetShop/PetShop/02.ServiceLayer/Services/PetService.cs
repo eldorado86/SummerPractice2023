@@ -17,6 +17,18 @@ namespace PetShop.DeveloperTesting.ServiceLayer.Services
             _petsCategoryRepository = petsCategporyRepository;
         }
 
+        public IEnumerable<PetDto> GetAll()
+        {
+            var allPets = _petsRepository.GetAll()
+                .Select(x =>
+                    new PetDto
+                    {
+                        Id = x.Id,
+                        Breed = x.Breed,
+                    });
+            return allPets;
+        }
+
         public int IncreasePetSupply(PetDto newPet)
         {
             //Validation rules
@@ -51,18 +63,6 @@ namespace PetShop.DeveloperTesting.ServiceLayer.Services
             _petsCategoryRepository.Update(newPetCategory);
 
             return newPetId;
-        }
-
-        public IEnumerable<PetDto> GetAll()
-        {
-            var allPets = _petsRepository.GetAll()
-                .Select(x =>
-                    new PetDto
-                    {
-                        Id = x.Id,
-                        Breed = x.Breed,
-                    });
-            return allPets;
         }
 
         public void SellPet(PetDto pet)
