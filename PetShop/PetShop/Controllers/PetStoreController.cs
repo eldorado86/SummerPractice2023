@@ -18,8 +18,6 @@ namespace StoreApi.Controllers
             _petService = petService;
         }
 
-
-        // GET: api/<AnimalStoreController>
         [HttpGet]
         public IActionResult Get()
         {
@@ -27,8 +25,6 @@ namespace StoreApi.Controllers
             return Ok(allPets);
         }
 
-
-        // POST api/<AnimalStoreController>
         [HttpPost]
         public IActionResult Post([FromBody] PetDto newPet)
         {

@@ -40,7 +40,7 @@ namespace PetShop.DeveloperTesting.ServiceLayer.Services
 
             var pet = new Pet()
             {
-                Name = newPet.Breed,
+                Breed = newPet.Breed,
                 CategoryId = newPet.CategoryId,
                 Quantity = newPet.Quantity
             };
@@ -60,7 +60,7 @@ namespace PetShop.DeveloperTesting.ServiceLayer.Services
                     new PetDto
                     {
                         Id = x.Id,
-                        Breed = x.Name,
+                        Breed = x.Breed,
                     });
             return allPets;
         }
